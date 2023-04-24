@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "temporal-openai"
+version = "0.1.0"
+description = ""
+authors = ["Patrick Rachford <prachford@icloud.com>"]
+readme = "README.md"
+packages = [{include = "temporal_openai"}]
+
+[tool.poetry.dependencies]
+python = "^3.10.10"
+openai = "^0.27.4"
+temporalio = "^1.1.0"
+flask = {extras = ["async"], version = "^2.2.3"}
+ruff = "^0.0.246"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks]
+format = [{cmd = "ruff check --fix ."}]
+lint = [{cmd = "ruff check ./*.py"}]
+
+
+[tool.ruff]
+select = ["E", "F"]
+line-length = 120
+fix = true
