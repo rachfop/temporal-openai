@@ -2,13 +2,6 @@
 
 This repository contains a Flask application that demonstrates how to use Temporal and OpenAI to build a simple chatbot. The chatbot is implemented using a workflow that uses an activity to call the OpenAI API to generate responses to user questions. 
 
-## Installation
-
-1. Clone the repository.
-2. Create a virtual environment: `python3 -m venv myenv`
-3. Activate the virtual environment: `source myenv/bin/activate`
-4. Install the requirements: `pip install -r requirements.txt`
-
 ## Running the application
 
 ### Prerequisites:
@@ -29,6 +22,16 @@ poetry install
 2. In a new terminal window, start the worker by running `poetry run python run_worker.py`
 3. In another terminal window, start the Flask application by running `python run_workflow.py`.
 4. Open your web browser and go to `http://localhost:5000`.
+
+## UI
+
+Interact with the model with the Flask UI.
+
+![flask ui](static/flask-ui.png)
+
+See the results from Temporal's Web UI at: <http://localhost:8233/>.
+
+![temporal web ui](static/temporal-ui.png)
 
 ## Files
 
