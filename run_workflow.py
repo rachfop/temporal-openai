@@ -1,9 +1,5 @@
-# run_workflow.py
-# run_workflow.py
 from flask import Flask, render_template, request
 from temporalio.client import Client
-
-# Import the workflow from the previous code
 from your_openai import OpenAIWorkflow
 
 app = Flask(__name__)

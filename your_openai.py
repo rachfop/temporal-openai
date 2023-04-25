@@ -1,4 +1,3 @@
-# your_openai.py
 from datetime import timedelta
 
 from temporalio import workflow
