@@ -15,9 +15,9 @@ class OpenAIWorkflow:
         return await workflow.execute_activity(
             return_answer,
             OpenAIQuestion(question),
-            start_to_close_timeout=timedelta(seconds=10),
+            start_to_close_timeout=timedelta(seconds=15),
             retry_policy=RetryPolicy(
-                maximum_attempts=3,
+                maximum_attempts=5,
                 non_retryable_error_types=["WorkflowFailureError"],
             ),
         )

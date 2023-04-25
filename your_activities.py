@@ -9,22 +9,22 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @dataclass
 class OpenAIQuestion:
-    answer: str
+    question: str
 
 
 @activity.defn
 async def return_answer(open_ai: OpenAIQuestion) -> str:
-    activity.heartbeat(f"Heartbeating from {activity}")
+    activity.heartbeat(f"Heartbeating from {activity.info().attempt}")
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a chatbot"},
-            {"role": "user", "content": f"{open_ai.answer}"},
+            {"role": "user", "content": f"{open_ai.question}"},
         ],
     )
 
-    result: str = ""
+    answer: str = ""
     for choice in response.choices:
-        result += choice.message.content
+        answer += choice.message.content
 
-    return result
+    return answer
